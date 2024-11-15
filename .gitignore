@@ -1,0 +1,69 @@
+# Ignoriere IDE-spezifische Dateien und Ordner
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Java Build-Dateien
+*.class
+target/
+*.jar
+*.war
+
+# Maven / Gradle Logs und Build-Dateien
+*.log
+*.build/
+build/
+.gradle/
+
+# Spring Boot (Falls sensible Daten enthalten)
+application.properties
+*.env
+
+# MacOS
+.DS_Store
+
+# Ignoriere generierte Dateien im Quellcode-Ordner
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Hilfsdateien wie Hilfe-Dokumente
+HELP.md
+
+# Java build files
+target/
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE files
+.idea/
+.vscode/
+
+# JAR files
+*.jar
+
+# etc.
