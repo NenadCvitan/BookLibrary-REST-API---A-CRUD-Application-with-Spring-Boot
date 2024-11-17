@@ -12,7 +12,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
 
     Optional<Book> findById(Integer id);
-    String findByIsbn(String Isbn);
+    Optional<Book> findByIsbn(String Isbn);
 
 
     //Methods to find several books in a list
@@ -21,6 +21,10 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     List<Book> findByAuthor(String author);
     List<Book> findByPublisher(String publisher);
     List<Book> findByPrice(Double price);
+    List<Book> findByGenre(String genre);
+
+    //   Put/Update Methods
+
 
 
 
