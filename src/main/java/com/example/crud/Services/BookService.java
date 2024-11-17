@@ -39,10 +39,9 @@ public class BookService {
     }
 
     public Optional<Book> findByIsbn(String isbn) {
-        if (isbn == null) {
-            throw new IllegalArgumentException("ISBN-Number cannot be null");
-        }
-        return bookRepository.findByIsbn(isbn);
+       return Optional.ofNullable(bookRepository.findByIsbn(isbn))
+               .orElseThrow(() -> new IllegalArgumentException(("Book with" +
+                       "isbn " + isbn + "not found")));
     }
 
 

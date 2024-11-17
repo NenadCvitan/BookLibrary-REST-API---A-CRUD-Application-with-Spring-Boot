@@ -36,10 +36,22 @@ public class BookController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/findAllBooks")
-    public List<Book> getAllBooks() {
-        return bookService.getAllBooks();
+    @GetMapping("/{isbn}")
+    public ResponseEntity<Book> findByIsbn(@PathVariable String isbn){
+        return bookService.findByIsbn(isbn)
+                .map(book -> new ResponseEntity<>(book , HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+    @GetMapping("/books")
+    public ResponseEntity<List<Book>> getAllBooks() {
+        List<Book> books = bookService.getAllBooks();
+        if (books.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
 
     @GetMapping("/search")
     public ResponseEntity<List<Book>> searchBooks(@RequestParam(required = false) String title,
@@ -62,6 +74,12 @@ public class BookController {
 
 
     //Put calls / Update book
+    @PutMapping("/{id}")
+    public ResponseEntity<Book> updateBook(@PathVariable Integer id , @RequestBody
+                                           Book bookDetails){
+        Book updatedBook = bookService.updateBook(id , bookDetails);
+        return new ResponseEntity<>(updatedBook , HttpStatus.OK);
+    }
 
 
 
